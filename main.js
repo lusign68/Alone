@@ -6,45 +6,10 @@ var canvas = document.getElementsByTagName("canvas")[0],
 		window.mozRequestAnimationFrame ||
 		(cb => window.setTimeout(cb, 1000 / 30));
 
-var data = document.getElementById('data');
-var text;
 
 //GUI
-var sampleText = function() {
-  this.message = "dat.guiのサンプル";
-  this.color = "#ff0000";
-  this.fontSize = 24;
-  this.border = false;
-  this.fontFamily = "sans-serif";
-};
-
-//GUI
-window.onload = function() {
-  text = new sampleText();
-  setValue();
   var gui = new dat.GUI();
-  gui.add(text, 'message').onChange(setValue);
-  gui.addColor(text, 'color').onChange(setValue);
-  gui.add(text, 'fontSize', 6, 48).onChange(setValue);
-  gui.add(text, 'border').onChange(setValue);
-  gui.add(text, 'fontFamily',["sans-serif", "serif", "cursive", "ＭＳ 明朝", "monospace"]).onChange(setValue);
-};
 
-//2
-function setValue() {
-  data.innerHTML = text.message;
-  data.style.color = text.color;
-  data.style.fontSize = text.fontSize+"px";
-  data.style.fontFamily = text.fontFamily;
-  if(text.border) {
-    data.style.border = "solid 1px black";
-    data.style.padding = "10px";
-  }
-  else {
-    data.style.border = "none";
-    data.style.padding = "0px";
-  }
-}
 
 function sign() {
 	return Math.random() > 0.5 ? 1 : -1;
@@ -184,6 +149,8 @@ player.angle = 0;
 player.thrust = 7 * earth.gravity();
 player.agility = 0.5;
 player.isPlayer = true;
+
+gui.add(player.thrust, 'message').onChange(setValue)
 
 for (var i = 100; i--;) new Particle({
 	radius: 100 * (40 + Math.ceil(Math.random() * 20)),
