@@ -6,6 +6,11 @@ var canvas = document.getElementsByTagName("canvas")[0],
 		window.mozRequestAnimationFrame ||
 		(cb => window.setTimeout(cb, 1000 / 30));
 
+window.onload = function() {
+  var gui = new dat.GUI();
+  gui.add(text, 'message').onChange(setValue);
+}
+
 function sign() {
 	return Math.random() > 0.5 ? 1 : -1;
 }
@@ -90,10 +95,6 @@ window.onwheel = function (e) {
 	CONTROLS.zoom *= (e.wheelDelta || -1 * event.deltaY) > 0 ? CONTROLS.zoomSpeed : 1 / CONTROLS.zoomSpeed;
 }
 
-window.onload = function() {
-  var gui = new dat.GUI();
-  gui.add(text, 'message').onChange(setValue);
-};
 
 var CONTROLS = {
 	keysDown: {},
