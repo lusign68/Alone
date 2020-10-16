@@ -6,11 +6,6 @@ var canvas = document.getElementsByTagName("canvas")[0],
 		window.mozRequestAnimationFrame ||
 		(cb => window.setTimeout(cb, 1000 / 30));
 
-
-//GUI
-  var gui = new dat.GUI();
-
-
 function sign() {
 	return Math.random() > 0.5 ? 1 : -1;
 }
@@ -95,7 +90,6 @@ window.onwheel = function (e) {
 	CONTROLS.zoom *= (e.wheelDelta || -1 * event.deltaY) > 0 ? CONTROLS.zoomSpeed : 1 / CONTROLS.zoomSpeed;
 }
 
-
 var CONTROLS = {
 	keysDown: {},
 	zoom: 1,
@@ -149,8 +143,6 @@ player.angle = 0;
 player.thrust = 7 * earth.gravity();
 player.agility = 0.5;
 player.isPlayer = true;
-
-gui.add(player.thrust, 'message').onChange(setValue)
 
 for (var i = 100; i--;) new Particle({
 	radius: 100 * (40 + Math.ceil(Math.random() * 20)),
