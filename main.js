@@ -90,6 +90,9 @@ window.onwheel = function (e) {
 	CONTROLS.zoom *= (e.wheelDelta || -1 * event.deltaY) > 0 ? CONTROLS.zoomSpeed : 1 / CONTROLS.zoomSpeed;
 }
 
+var gui = new dat.GUI();
+  gui.add(text, 'message').onChange(setValue);
+
 var CONTROLS = {
 	keysDown: {},
 	zoom: 1,
