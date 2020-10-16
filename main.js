@@ -140,7 +140,7 @@ var player = new Particle({
 });
 player.velocity = earth.velocity.copy();
 player.angle = 0;
-player.thrust = 4 * earth.gravity();
+player.thrust = 7 * earth.gravity();
 player.agility = 0.5;
 player.isPlayer = true;
 
