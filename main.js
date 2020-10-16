@@ -91,14 +91,8 @@ window.onwheel = function (e) {
 }
 
 window.onload = function() {
-  text = new sampleText();
-  setValue();
   var gui = new dat.GUI();
   gui.add(text, 'message').onChange(setValue);
-  gui.addColor(text, 'color').onChange(setValue);
-  gui.add(text, 'fontSize', 6, 48).onChange(setValue);
-  gui.add(text, 'border').onChange(setValue);
-  gui.add(text, 'fontFamily',["sans-serif", "serif", "cursive", "ＭＳ 明朝", "monospace"]).onChange(setValue);
 };
 
 var CONTROLS = {
