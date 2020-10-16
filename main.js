@@ -115,7 +115,7 @@ var sun = new Particle({
 	colour: "yellow"
 }),
 	earth = new Particle({
-		radius: 6.371E6,
+		radius: 6.371E3,
 		density: 5.514E3,
 		colour: "#4E71B2"
 	}),
@@ -135,7 +135,7 @@ moon.orbit(earth, false, 3.84405E8);
 
 
 var player = new Particle({
-	radius: 56,
+	radius: 5,
 	coords: earth.coords.copy().add(new vec2(earth.radius + 56, 0))
 });
 player.velocity = earth.velocity.copy();
